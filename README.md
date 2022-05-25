@@ -1,2 +1,2 @@
-# js-standard
-자바스크립트 스탠다드 라이브러리
+# js-data-structure
+자바스크립트 자료구조 라이브러리
