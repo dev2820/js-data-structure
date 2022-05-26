@@ -24,7 +24,7 @@ export function expectTypeError(callback) {
   try {
     callback();
   } catch (e) {
-    if (e instanceof TypeError) return true;
+    if (e instanceof RangeError) return true;
     throw `expected an TypeError, but it is ${e.constructor.name}`;
   }
   throw `expected an TypeError, but it successed ${Error.stack}`;
