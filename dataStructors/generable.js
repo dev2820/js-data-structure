@@ -1,4 +1,5 @@
 "use strict";
+
 function typeCheck(data, type = null) {
   if (type === null) return true;
   return data.constructor.name === type;
