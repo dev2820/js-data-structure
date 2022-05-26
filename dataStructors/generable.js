@@ -1,14 +1,8 @@
 "use strict";
 
-export class Generable {
-  #type = null;
-
-  generic(type) {
-    this.#type = type;
-  }
-  typeCheck(data) {
-    return typeof data === this.#type;
-  }
+function typeCheck(data, type = null) {
+  if (type === null) return true;
+  return data.constructor.name === type;
 }
 
 export class GenerableArray extends Array {
