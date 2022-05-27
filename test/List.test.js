@@ -112,10 +112,9 @@ new Test("List concat test", () => {
     ["A", "B", "C", "D", "E", ["F"]].toString()
   );
 
-  let genericList = new List();
-  genericList.generic(String);
-  genericList.push("A", "B", "C");
-  expectTypeError(() => genericList.concat(["D"], ["E", ["F"]]).toString());
+  let stringList = new List().setType(String);
+  stringList.push("A", "B", "C");
+  expectTypeError(() => stringList.concat(["D"], ["E", ["F"]]).toString());
   //["F"]는 Array 타입이기 때문에 실패해야함
 });
 
@@ -137,8 +136,8 @@ new Test("List fill test", () => {
     ["Z", "Z", "Z", "Z", "Z", "Z"].toString()
   );
 
-  const genericList = new List(1, 2, 3).generic(Number);
-  expectTypeError(() => genericList.fill("A"));
+  const typeList = new List(1, 2, 3).setType(Number);
+  expectTypeError(() => typeList.fill("A"));
 });
 
 new Test("List erase test", () => {
@@ -181,8 +180,7 @@ new Test("List insert test", () => {
 });
 
 new Test("List type test", () => {
-  let list = new List();
-  list.generic(String);
+  let list = new List().setType(String);
   list.push("A", "B", "C", "D");
   expectEqual(list.type === String.name, true);
   expectEqual(list.type === Number.name, false);
