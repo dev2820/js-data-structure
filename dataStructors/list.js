@@ -1,5 +1,5 @@
 "use strict";
-import { GenerableArray } from "./generable.js";
+import { TypeableArray } from "./typeable.js";
 /* 
 모든 List는 기본적으론 배열과 같습니다 (배열을 상속) 
 다만 타입 검사를 통해 한가지 타입의 값만 저장할 수 있습니다.
@@ -8,20 +8,12 @@ import { GenerableArray } from "./generable.js";
 /*
 선형 리스트
 */
-export class List extends GenerableArray {
+export class List extends TypeableArray {
   front() {
-    if (this.length > 0) {
-      return this[0];
-    } else {
-      return null;
-    }
+    return this.length > 0 ? this[0] : null;
   }
   back() {
-    if (this.length > 0) {
-      return this.at(-1);
-    } else {
-      return null;
-    }
+    return this.length > 0 ? this.at(-1) : null;
   }
   erase(index) {
     if (typeof index !== typeof 0) {
@@ -62,11 +54,11 @@ export class List extends GenerableArray {
 /*
 단일 연결 리스트
 */
-export class SimpleLinkedList extends GenerableArray {}
+export class SimpleLinkedList extends TypeableArray {}
 /*
 이중 연결 리스트
 */
-export class LinkedList extends GenerableArray {}
+export class LinkedList extends TypeableArray {}
 
 export default {
   List,
